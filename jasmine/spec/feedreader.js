@@ -37,7 +37,7 @@ $(function() {
             for(let feed of allFeeds){
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
-                expect(feed.url).toMatch(/^(http|https):\/\//);
+                expect(feed.url).toMatch(/^(http|https):\/\//);//matches url
             }
          });
 
@@ -47,6 +47,7 @@ $(function() {
          * and that the name is not empty.
          */
          it('have names',function(){
+            //looping through each element
           for(let feed of allFeeds){
             expect(feed.name).toBeDefined();
             expect(feed.name.length).not.toBe(0);
@@ -75,8 +76,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('body has toggle the class',function(){
-            let menuIcon = document.querySelector('.menu-icon-link');
-           
+            let menuIcon = document.querySelector('.menu-icon-link');           
            menuIcon.click();
             expect(body.classList.contains('menu-hidden')).toBe(false);
           });
@@ -127,12 +127,9 @@ $(function() {
          afterEach(function(){
             loadFeed(0);
          });
-
-
             it("new feed loaded",function(){
                newFeed = document.querySelector('.feed').innerHTML;
               expect(initFeed).not.toEqual(newFeed);
             });
-
       });
 }());
