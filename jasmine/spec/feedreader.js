@@ -76,9 +76,11 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('body has toggle the class',function(){
-            let menuIcon = document.querySelector('.menu-icon-link');           
-           menuIcon.click();
-            expect(body.classList.contains('menu-hidden')).toBe(false);
+            let body = document.querySelector('body');          
+           $('a.menu-icon-link').trigger('click');
+           expect(body.hasClass('menu-hidden')).toBe(false);
+          $('a.menu-icon-link').trigger('click');
+            expect(body.hasClass('menu-hidden')).toBe(true);
           });
 });
     /* Write a new test suite named "Initial Entries" */
